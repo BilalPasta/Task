@@ -2,7 +2,6 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { StorageService } from './storage.interface';
-import { AzureBlobStorageService } from './azure-blob-storage.service';
 import { CloudinaryStorageService } from './cloudinary-storage.service';
 @Injectable()
 export class StorageServiceFactory {
@@ -13,7 +12,7 @@ export class StorageServiceFactory {
 
     switch (provider) {
       case 'azure':
-        return new AzureBlobStorageService(this.configService);
+      // return new AzureBlobStorageService(this.configService);
       case 'cloudinary':
         return new CloudinaryStorageService(this.configService);
       default:
